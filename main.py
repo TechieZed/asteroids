@@ -6,8 +6,13 @@ from logger import log_state
 
 def main():
     pygame.init()
+
     pygame_version = pygame.version.ver
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+
+    clock = pygame.time.Clock()
+    dt = 0
+
     print(f"Starting Asteroids with pygame version: {pygame_version}")
     print(f"Screen width: {SCREEN_WIDTH}")
     print(f"Screen height: {SCREEN_HEIGHT}")
@@ -21,6 +26,11 @@ def main():
 
         pygame.Surface.fill(screen, "black")
         pygame.display.flip()
+
+        clock.tick(60)
+
+        dt = clock.tick() / 1000
+        print(dt)
 
 
 if __name__ == "__main__":
